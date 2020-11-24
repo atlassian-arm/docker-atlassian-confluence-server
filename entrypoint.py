@@ -1,7 +1,18 @@
 #!/usr/bin/python3 -B
 
+import os, logging
+
 from entrypoint_helpers import env, gen_cfg, str2bool, start_app
 
+def create_dir(path):
+    try:
+        os.mkdir(path)
+        os.chown(path, int(env['run_uid']), int(env['run_gid']))
+        logging.info(f"Created directory {path}")
+    except OSError:
+        print ("Creation of the directory %s failed" % path)
+    else:
+        print ("Successfully created the directory %s " % path)
 
 RUN_USER = env['run_user']
 RUN_GROUP = env['run_group']
@@ -16,4 +27,8 @@ gen_cfg('confluence-init.properties.j2',
 gen_cfg('confluence.cfg.xml.j2', f'{CONFLUENCE_HOME}/confluence.cfg.xml',
         user=RUN_USER, group=RUN_GROUP, overwrite=False)
 
-start_app(f'{CONFLUENCE_INSTALL_DIR}/bin/start-confluence.sh -fg', CONFLUENCE_HOME, name='Confluence')
+if str2bool(env.get('confluence_log_stdout')):
+        create_dir(f'{CONFLUENCE_HOME}/logs')
+        tee_command = f'| tee {CONFLUENCE_HOME}/logs/atlassian-confluence.log'
+
+start_app(f'{CONFLUENCE_INSTALL_DIR}/bin/start-confluence.sh -fg {tee_command}', CONFLUENCE_HOME, name='Confluence')
