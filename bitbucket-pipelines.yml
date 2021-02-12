@@ -20,7 +20,7 @@ pipelines:
                 - export TAG_SUFFIXES='alpine,alpine-adoptopenjdk8'
                 - export CONCURRENT_BUILDS='3'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --create --test-script ./integration_test.sh
+                - python /usr/src/app/run.py --create
           - step:
               name: Confluence Ubuntu JDK 8
               services:
@@ -37,7 +37,7 @@ pipelines:
                 - export TAG_SUFFIXES='adoptopenjdk8,jdk8,ubuntu,ubuntu-18.04-adoptopenjdk8'
                 - export CONCURRENT_BUILDS='3'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --create --test-script ./integration_test.sh
+                - python /usr/src/app/run.py --create
           - step:
               name: Confluence Ubuntu JDK 11
               services:
@@ -53,7 +53,7 @@ pipelines:
                 - export TAG_SUFFIXES='jdk11,ubuntu'
                 - export CONCURRENT_BUILDS='3'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --create --create-eap --test-script ./integration_test.sh
+                - python /usr/src/app/run.py --create --create-eap
     custom-release:
       - variables:
           - name: CONFLUENCE_VERSION
@@ -67,6 +67,7 @@ pipelines:
             - >
               docker build -t atlassian/confluence-server:${DOCKER_TAG}
               --build-arg CONFLUENCE_VERSION=${CONFLUENCE_VERSION} .
+            - snyk auth ${SNYK_TOKEN}
             - snyk container test atlassian/docker-release-maker:${DOCKER_TAG} --severity-threshold=high
             - docker push atlassian/confluence-server:${DOCKER_TAG}
   branches:
@@ -88,7 +89,7 @@ pipelines:
                 - export TAG_SUFFIXES='alpine,alpine-adoptopenjdk8'
                 - export CONCURRENT_BUILDS='3'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --update --test-script ./integration_test.sh
+                - python /usr/src/app/run.py --update
           - step:
               name: Confluence Ubuntu JDK 8
               services:
@@ -105,7 +106,7 @@ pipelines:
                 - export TAG_SUFFIXES='adoptopenjdk8,jdk8,ubuntu,ubuntu-18.04-adoptopenjdk8'
                 - export CONCURRENT_BUILDS='3'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --update --test-script ./integration_test.sh
+                - python /usr/src/app/run.py --update
           - step:
               name: Confluence Ubuntu JDK 11
               services:
@@ -121,7 +122,7 @@ pipelines:
                 - export TAG_SUFFIXES='jdk11,ubuntu'
                 - export CONCURRENT_BUILDS='3'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --update --test-script ./integration_test.sh
+                - python /usr/src/app/run.py --update
       - step:
           name: Update README
           image: python:3.7-alpine3.9
