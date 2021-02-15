@@ -67,6 +67,7 @@ pipelines:
             - >
               docker build -t atlassian/confluence-server:${DOCKER_TAG}
               --build-arg CONFLUENCE_VERSION=${CONFLUENCE_VERSION} .
+            - snyk auth @SNYK_TOKEN
             - snyk container test atlassian/docker-release-maker:${DOCKER_TAG} --severity-threshold=high
             - docker push atlassian/confluence-server:${DOCKER_TAG}
   branches:
