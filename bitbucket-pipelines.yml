@@ -19,8 +19,6 @@ pipelines:
                 - export MAC_PRODUCT_KEY='confluence'
                 - export TAG_SUFFIXES='alpine,alpine-adoptopenjdk8'
                 - export CONCURRENT_BUILDS='3'
-                - export PUSH_DOCKER_IMAGE='true'
-                - export INTEGRATION_TEST_SCRIPT='./integration_test.sh'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --create
           - step:
@@ -38,8 +36,6 @@ pipelines:
                 - export MAC_PRODUCT_KEY='confluence'
                 - export TAG_SUFFIXES='adoptopenjdk8,jdk8,ubuntu,ubuntu-18.04-adoptopenjdk8'
                 - export CONCURRENT_BUILDS='3'
-                - export PUSH_DOCKER_IMAGE='true'
-                - export INTEGRATION_TEST_SCRIPT='./integration_test.sh'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --create
           - step:
@@ -56,8 +52,6 @@ pipelines:
                 - export MAC_PRODUCT_KEY='confluence'
                 - export TAG_SUFFIXES='jdk11,ubuntu'
                 - export CONCURRENT_BUILDS='3'
-                - export PUSH_DOCKER_IMAGE='true'
-                - export INTEGRATION_TEST_SCRIPT='./integration_test.sh'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --create --create-eap
     custom-release:
@@ -94,8 +88,6 @@ pipelines:
                 - export MAC_PRODUCT_KEY='confluence'
                 - export TAG_SUFFIXES='alpine,alpine-adoptopenjdk8'
                 - export CONCURRENT_BUILDS='3'
-                - export PUSH_DOCKER_IMAGE='true'
-                - export INTEGRATION_TEST_SCRIPT='./integration_test.sh'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --update
           - step:
@@ -113,8 +105,6 @@ pipelines:
                 - export MAC_PRODUCT_KEY='confluence'
                 - export TAG_SUFFIXES='adoptopenjdk8,jdk8,ubuntu,ubuntu-18.04-adoptopenjdk8'
                 - export CONCURRENT_BUILDS='3'
-                - export PUSH_DOCKER_IMAGE='true'
-                - export INTEGRATION_TEST_SCRIPT='./integration_test.sh'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --update
           - step:
@@ -131,8 +121,6 @@ pipelines:
                 - export MAC_PRODUCT_KEY='confluence'
                 - export TAG_SUFFIXES='jdk11,ubuntu'
                 - export CONCURRENT_BUILDS='3'
-                - export PUSH_DOCKER_IMAGE='true'
-                - export INTEGRATION_TEST_SCRIPT='./integration_test.sh'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --update
       - step:
