@@ -1,0 +1,45 @@
+version: '3.5'
+
+services:
+  postgresql:
+    build:
+      context: ./postgres
+    ports:
+      - '5432:5432'
+    environment:
+      - 'POSTGRES_DB=confluence'
+      - 'POSTGRES_USER=confluence'
+      - 'POSTGRES_PASSWORD=confluence'
+
+  confluence:
+    image: ${TEST_TARGET_IMAGE}
+    volumes:
+      - ./confluence-home:/var/atlassian/application-data/confluence
+    depends_on:
+      - postgresql
+    ports:
+      - '8090:8090'
+    environment:
+      - 'ATL_TOMCAT_CONTEXTPATH=/confluence'
+    command: >
+      bash -c '
+          apt-get update -y && apt-get install -y netcat &&
+          /opt/atlassian/support/waitport postgresql 5432 &&
+          chown -R confluence.confluence  /var/atlassian/application-data/confluence/ &&
+          /entrypoint.py
+      '
+
+  smoketests:
+    build:
+      context: ./smoketests/
+    environment:
+      - CONFLUENCE_BASE_URL=http://confluence:8090/confluence
+      - CONFLUENCE_ADMIN=admin
+      - CONFLUENCE_ADMIN_PWD=${CONFLUENCE_ADMIN_PWD}
+      - CONFLUENCE_USER=admin
+      - CONFLUENCE_USER_PWD=${CONFLUENCE_USER_PWD}
+    command: >
+      bash -c '
+          ./bin/confluence-wait &&
+          python3 src/smoketests.py
+      '
