@@ -12,9 +12,8 @@ services:
       - 'POSTGRES_PASSWORD=confluence'
 
   confluence:
-    image: ${TEST_TARGET_IMAGE}
-    volumes:
-      - ./confluence-home:/var/atlassian/application-data/confluence
+    build:
+      context: ./confluence
     depends_on:
       - postgresql
     ports:
