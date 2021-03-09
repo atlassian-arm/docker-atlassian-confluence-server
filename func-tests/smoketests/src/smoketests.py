@@ -129,7 +129,7 @@ def add_attachments(content_id):
 	return r.status_code == 200
 
 
-def retrieve_attachment(content_id, attachment_id):
+def retrieve_attachment(content_id):
 	print("   - Download Attachment", end='')
 	url = f"{BASE_REST_URL}/rest/api/content/{content_id}/child/attachment"
 	headers = {'Content-Type': 'application/json'}
@@ -141,7 +141,7 @@ def retrieve_attachment(content_id, attachment_id):
 	downloadurl = f"{BASE_REST_URL}{result['results'][0]['_links']['download']}"
 	r = requests.get(downloadurl, headers=headers, auth=auth)
 	assert r.status_code == 200, "Unable to download the attachment!"
-	print(".............passed")
+	print("........passed")
 
 
 def delete_content(content_id):
@@ -171,6 +171,7 @@ if __name__ == '__main__':
 	search_content(title)
 	edit_content(content_id)
 	attachment_id=add_attachments(content_id)
+	retrieve_attachment(content_id)
 	delete_content(content_id)
 	delete_space(space_key)
 
