@@ -1,0 +1,52 @@
+ARG BASE_IMAGE=adoptopenjdk:11-hotspot
+FROM $BASE_IMAGE
+
+LABEL maintainer="dc-deployments@atlassian.com"
+LABEL securitytxt="https://www.atlassian.com/.well-known/security.txt"
+
+ENV RUN_USER                                        synchrony
+ENV RUN_GROUP                                       synchrony
+ENV RUN_UID                                         2005
+ENV RUN_GID                                         2005
+
+ENV SYNCHRONY_HOME                                 /var/atlassian/application-data/synchrony
+ENV SYNCHRONY_INSTALL_DIR                          /opt/atlassian/synchrony
+# Any JAR files mounted here will be added to the classpath. This is
+# primarily for non-distributable driver; e.g.  The Kubernetes Helm
+# charts mount extra DB drivers under ../WEB-INF/lib as individual
+# files.
+ENV SYNCHRONY_EXTRA_LIBS                           ${SYNCHRONY_INSTALL_DIR}/lib
+
+WORKDIR $SYNCHRONY_HOME
+
+# Expose Synchrony port
+EXPOSE 8091
+
+CMD ["/entrypoint.py"]
+ENTRYPOINT ["/usr/bin/tini", "--"]
+
+ARG CONFLUENCE_VERSION
+ARG DOWNLOAD_URL=https://product-downloads.atlassian.com/software/confluence/downloads/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz
+
+
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y --no-install-recommends python3 python3-jinja2 tini \
+    && apt-get clean autoclean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+
+RUN groupadd --gid ${RUN_GID} ${RUN_GROUP} \
+    && useradd --uid ${RUN_UID} --gid ${RUN_GID} --home-dir ${SYNCHRONY_HOME} --shell /bin/bash ${RUN_USER} \
+    && echo PATH=$PATH > /etc/environment \
+    && mkdir -p                                     ${SYNCHRONY_INSTALL_DIR} ${SYNCHRONY_EXTRA_LIBS} \
+    && curl -Lsv ${DOWNLOAD_URL} \
+        | tar -xz --file=- -C "${SYNCHRONY_INSTALL_DIR}" --strip-components=4 --wildcards \
+            '*/confluence/WEB-INF/packages/synchrony-standalone.jar' \
+            '*/confluence/WEB-INF/lib/postgresql-*.jar' \
+    && chmod -R "u=rwX,g=rX,o=rX"                   ${SYNCHRONY_INSTALL_DIR}/ ${SYNCHRONY_EXTRA_LIBS}/ \
+    && chown -R root.                               ${SYNCHRONY_INSTALL_DIR}/ ${SYNCHRONY_EXTRA_LIBS}/ \
+    && chown -R ${RUN_USER}:${RUN_GROUP}            ${SYNCHRONY_HOME}
+
+COPY entrypoint.py \
+     shared-components/image/entrypoint_helpers.py  /
+COPY shared-components/support                      /opt/atlassian/support
+COPY config/*                                       /opt/atlassian/etc/
