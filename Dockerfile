@@ -8,6 +8,8 @@ ENV RUN_USER                                        confluence
 ENV RUN_GROUP                                       confluence
 ENV RUN_UID                                         2002
 ENV RUN_GID                                         2002
+ENV SECONDARY_GID                                   2001
+ENV SECONDARY_GROUP                                 connie-secondary
 
 # https://confluence.atlassian.com/doc/confluence-home-and-other-important-directories-590259707.html
 ENV CONFLUENCE_HOME                                 /var/atlassian/application-data/confluence
@@ -33,7 +35,8 @@ ARG CONFLUENCE_VERSION
 ARG DOWNLOAD_URL=https://product-downloads.atlassian.com/software/confluence/downloads/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz
 
 RUN groupadd --gid ${RUN_GID} ${RUN_GROUP} \
-    && useradd --uid ${RUN_UID} --gid ${RUN_GID} --home-dir ${CONFLUENCE_HOME} --shell /bin/bash ${RUN_USER} \
+    && groupadd --gid ${SECONDARY_GID} ${SECONDARY_GROUP} \
+    && useradd --uid ${RUN_UID} --gid ${RUN_GID} --groups ${SECONDARY_GID} --home-dir ${CONFLUENCE_HOME} --shell /bin/bash ${RUN_USER} \
     && echo PATH=$PATH > /etc/environment \
     \
     && mkdir -p                                     ${CONFLUENCE_INSTALL_DIR} \
