@@ -41,7 +41,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -66,7 +66,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -91,7 +91,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -116,7 +116,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -141,7 +141,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -166,7 +166,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -191,7 +191,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -216,7 +216,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -291,7 +291,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -317,7 +317,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -343,7 +343,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -369,7 +369,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -395,7 +395,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -421,7 +421,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -447,7 +447,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
@@ -473,7 +473,7 @@ pipelines:
                   --end-version='8' \
                   --default-release \
                   --dockerfile='Dockerfile' \
-                  --dockerfile-buildargs='BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
                   --mac-product-key='confluence' \
                   --tag-suffixes='adoptopenjdk11,jdk11,ubuntu,ubuntu-18.04-adoptopenjdk11' \
