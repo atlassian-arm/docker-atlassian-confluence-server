@@ -16,6 +16,15 @@ images = {
             'tag_suffixes': ['adoptopenjdk11', 'jdk11', 'ubuntu', 'ubuntu-18.04-adoptopenjdk11'],
             'dockerfile': 'Dockerfile',
             'docker_repos': REPOS,
+        },
+        17: {
+            'start_version': '8',
+            'end_version': '8',
+            'default_release': False,
+            'base_image': 'eclipse-temurin:17',
+            'tag_suffixes': ['temurin17', 'jdk17', 'ubuntu', 'ubuntu-18.04-temurin17'],
+            'dockerfile': 'Dockerfile',
+            'docker_repos': REPOS,
         }
     },
 }
