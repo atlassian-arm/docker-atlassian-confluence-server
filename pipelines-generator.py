@@ -9,7 +9,7 @@ REPOS = ['atlassian/confluence', 'atlassian/confluence-server']
 images = {
     'Confluence': {
         11: {
-            'start_version': '7.4',
+            'start_version': '7.11',
             'default_release': True,
             'base_image': 'eclipse-temurin:11',
             'tag_suffixes': ['jdk11','ubuntu-jdk11'],
