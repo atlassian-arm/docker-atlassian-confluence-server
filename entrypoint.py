@@ -8,6 +8,7 @@ RUN_GROUP = env['run_group']
 CONFLUENCE_INSTALL_DIR = env['confluence_install_dir']
 CONFLUENCE_HOME = env['confluence_home']
 UPDATE_CFG = str2bool_or(env.get('atl_force_cfg_update'), False)
+UNSET_SENSITIVE_VARS = str2bool_or(env.get('atl_unset_sensitive_env_vars'), True)
 
 gen_cfg('server.xml.j2', f'{CONFLUENCE_INSTALL_DIR}/conf/server.xml')
 gen_cfg('seraph-config.xml.j2',
@@ -18,4 +19,4 @@ gen_cfg('confluence.cfg.xml.j2', f'{CONFLUENCE_HOME}/confluence.cfg.xml',
         user=RUN_USER, group=RUN_GROUP, overwrite=UPDATE_CFG)
 
 exec_app([f'{CONFLUENCE_INSTALL_DIR}/bin/start-confluence.sh', '-fg'], CONFLUENCE_HOME,
-         name='Confluence', env_cleanup=True)
+         name='Confluence', env_cleanup=UNSET_SENSITIVE_VARS)

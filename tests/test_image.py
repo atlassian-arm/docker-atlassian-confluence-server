@@ -1,6 +1,8 @@
 import pytest
 import signal
 import testinfra
+from iterators import TimeoutIterator
+import re
 
 from helpers import get_app_home, get_app_install_dir, get_bootstrap_proc, get_procs, \
     parse_properties, parse_xml, run_image, \
@@ -575,3 +577,33 @@ def test_confluence_db_pool_property(docker_cli, image, version, db_property):
     for property, expected_value in expected.items():
         assert xml.findall(f'.//property[@name="{property}"]')[0].text == expected_value
 
+
+def test_unset_secure_vars(docker_cli, image, run_user):
+    environment = {
+        'MY_TOKEN': 'tokenvalue',
+    }
+    container = docker_cli.containers.run(image, detach=True, user=run_user, environment=environment,
+                                          ports={PORT: PORT})
+    wait_for_state(STATUS_URL, expected_state='FIRST_RUN')
+    var_unset_log_line = 'Unsetting environment var MY_TOKEN'
+    wait_for_log(container, var_unset_log_line)
+
+
+def test_skip_unset_secure_vars(docker_cli, image, run_user):
+    environment = {
+        'MY_TOKEN': 'tokenvalue',
+        'ATL_UNSET_SENSITIVE_ENV_VARS': 'false',
+    }
+    container = docker_cli.containers.run(image, detach=True, user=run_user, environment=environment,
+                                          ports={PORT: PORT})
+    wait_for_state(STATUS_URL, expected_state='FIRST_RUN')
+    var_unset_log_line = 'Unsetting environment var MY_TOKEN'
+    rpat = re.compile(var_unset_log_line)
+    logs = container.logs(stream=True, follow=True)
+    li = TimeoutIterator(logs, timeout=1)
+    for line in li:
+        if line == li.get_sentinel():
+            return
+        line = line.decode('UTF-8')
+        if rpat.search(line):
+            raise EOFError(f"Found unexpected log line '{var_unset_log_line}'")
