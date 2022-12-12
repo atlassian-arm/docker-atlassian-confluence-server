@@ -154,7 +154,7 @@ Example:
 
     docker run -e JVM_SUPPORT_RECOMMENDED_ARGS=-Djavax.net.ssl.trustStore=/var/atlassian/application-data/confluence/cacerts -v confluenceVolume:/var/atlassian/application-data/confluence --name="confluence" -d -p 8090:8090 -p 8091:8091 atlassian/confluence
 
-  See: [Recognized System Properties](https://confluence.atlassian.com/doc/recognized-system-properties-190430.html)
+    For additional settings that can be supplied, see: [Recognized System Properties](https://confluence.atlassian.com/doc/recognized-system-properties-190430.html)
 
 ## Confluence-specific settings
 
