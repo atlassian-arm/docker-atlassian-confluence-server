@@ -25,3 +25,60 @@ ignore:
     - '*':
       reason: password-cli.jar; pending fix
       expires: 2023-03-31T00:00:00.000Z
+
+  SNYK-JAVA-COMFASTERXMLJACKSONCORE-2421244:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-COMFASTERXMLWOODSTOX-2928754:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-COMSQUAREUPOKHTTP3-2958044:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-DOM4J-174153:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-DOM4J-2812975:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-NETSOURCEFORGENEKOHTML-2621454:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-ORGAPACHEVELOCITY-3116414:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-ORGCODEHAUSJETTISON-3168085:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-ORGJSON-2841369:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-ORGMOZILLA-1314295:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-ORGYAML-2806360:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-XALAN-2953385:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-XERCES-2359991:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-XERCES-31585:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
