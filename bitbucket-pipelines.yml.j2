@@ -57,7 +57,7 @@ pipelines:
                   --jobs-total='{{ batches }}' \
                   --docker-repos='{{ appdata.docker_repos|join(',') }}' \
                   --push
- 
+
     {% endfor %}
   {% endfor %}
 {% endfor %}
@@ -124,6 +124,41 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create \
+                  --start-version='{{ appdata.start_version }}' \
+                  {% if appdata.end_version|length %}
+                  --end-version='{{ appdata.end_version }}' \
+                  {% endif %}
+                  {% if appdata.default_release %}
+                  --default-release \
+                  {% endif %}
+                  --dockerfile='{{ appdata.dockerfile }}' \
+                  --dockerfile-buildargs='BASE_IMAGE={{ appdata.base_image }}' \
+                  --dockerfile-version-arg='CONFLUENCE_VERSION' \
+                  --mac-product-key='confluence' \
+                  --tag-suffixes='{{ appdata.tag_suffixes|join(',') }}' \
+                  --concurrent-builds='1' \
+                  --job-offset='{{ offset }}' \
+                  --jobs-total='{{ batches }}' \
+                  --docker-repos='{{ appdata.docker_repos|join(',') }}' \
+                  --push
+
+    {% endfor %}
+  {% endfor %}
+{% endfor %}
+
+{% for (name, pdata) in images.items() %}
+  {% for (jdkver, appdata) in pdata.items() %}
+    {% for offset in range(0, batches) %}
+
+        - step:
+            name: EAP JDK {{ jdkver }} - Batch {{ offset + 1 }}
+            services:
+              - docker
+            script:
+              - git submodule update --init --recursive
+              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
+              - >
+                python /usr/src/app/make-releases.py \
                   --create-eap \
                   --start-version='{{ appdata.start_version }}' \
                   {% if appdata.end_version|length %}
@@ -142,7 +177,7 @@ pipelines:
                   --jobs-total='{{ batches }}' \
                   --docker-repos='{{ appdata.docker_repos|join(',') }}' \
                   --push
- 
+
     {% endfor %}
   {% endfor %}
 {% endfor %}
