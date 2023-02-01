@@ -8,7 +8,12 @@ ignore:
     - '*':
       reason: Fix pending
       expires: 2023-03-31T00:00:00.000Z
-    
+
+  'snyk:lic:maven:org.jclarion:image4j:GPL-3.0':
+    - '*':
+      reason: Fix pending
+      expires: 2023-03-31T00:00:00.000Z    
+
   SNYK-JAVA-LOG4J-2342645:
     - '*':
       reason: password-cli.jar; pending fix
