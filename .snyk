@@ -10,18 +10,18 @@ ignore:
       expires: 2023-03-31T00:00:00.000Z
     
   SNYK-JAVA-LOG4J-2342645:
-    - 'log4j:log4j@1.2.17-atlassian-16':
-      reason: Version is patched
+    - '*':
+      reason: password-cli.jar; pending fix
       expires: 2023-03-31T00:00:00.000Z
   SNYK-JAVA-LOG4J-2342646:
-    - 'log4j:log4j@1.2.17-atlassian-16':
-      reason: Version is patched
+    - '*':
+      reason: password-cli.jar; pending fix
       expires: 2023-03-31T00:00:00.000Z
   SNYK-JAVA-LOG4J-2342647:
-    - 'log4j:log4j@1.2.17-atlassian-16':
-      reason: Version is patched
+    - '*':
+      reason: password-cli.jar; pending fix
       expires: 2023-03-31T00:00:00.000Z
   SNYK-JAVA-LOG4J-572732:
-    - 'log4j:log4j@1.2.17-atlassian-16':
-      reason: Version is patched
+    - '*':
+      reason: password-cli.jar; pending fix
       expires: 2023-03-31T00:00:00.000Z
