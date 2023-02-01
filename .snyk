@@ -82,3 +82,11 @@ ignore:
     - '*':
       reason: Temp override for 8.1.0-beta1; pending patch
       expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-ORGAPACHETOMCAT-3225085:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
+  SNYK-JAVA-ORGAPACHETOMCAT-3225100:
+    - '*':
+      reason: Temp override for 8.1.0-beta1; pending patch
+      expires: 2023-03-31T00:00:00.000Z
