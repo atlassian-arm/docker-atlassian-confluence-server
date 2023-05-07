@@ -284,7 +284,7 @@ def test_confluence_xml_postgres(docker_cli, image, run_user):
     assert xml.findall('.//property[@name="hibernate.hikari.maximumPoolSize"]')[0].text == "100"
     assert xml.findall('.//property[@name="hibernate.hikari.minimumIdle"]')[0].text == "20"
     assert xml.findall('.//property[@name="hibernate.hikari.registerMbeans"]')[0].text == "true"
-
+    assert xml.findall('.//property[@name="hibernate.connection.provider_class"]')[0].text == "com.atlassian.confluence.impl.hibernate.DelegatingHikariConnectionProvider"
 
 def test_confluence_xml_postgres_all_set(docker_cli, image, run_user):
     environment = {
@@ -295,6 +295,7 @@ def test_confluence_xml_postgres_all_set(docker_cli, image, run_user):
         'ATL_DB_POOLMAXSIZE': 'x100',
         'ATL_DB_POOLMINSIZE': 'x20',
         'ATL_DB_TIMEOUT': '40',
+        'ATL_DB_PROVIDER_CLASS': 'com.example.class',
     }
     container = run_image(docker_cli, image, user=run_user, environment=environment)
     _jvm = wait_for_proc(container, get_bootstrap_proc(container))
@@ -305,6 +306,7 @@ def test_confluence_xml_postgres_all_set(docker_cli, image, run_user):
     assert xml.findall('.//property[@name="hibernate.hikari.idleTimeout"]')[0].text == "40000"
     assert xml.findall('.//property[@name="hibernate.hikari.maximumPoolSize"]')[0].text == "x100"
     assert xml.findall('.//property[@name="hibernate.hikari.minimumIdle"]')[0].text == "x20"
+    assert xml.findall('.//property[@name="hibernate.connection.provider_class"]')[0].text == "com.example.class"
 
 
 
@@ -553,6 +555,7 @@ expected_db_properties = {
         'hibernate.hikari.registerMbeans': 'true',
         'hibernate.hikari.maximumPoolSize': '100',
         'hibernate.hikari.minimumIdle': '20',
+        'hibernate.connection.provider_class': 'com.atlassian.confluence.impl.hibernate.DelegatingHikariConnectionProvider',
     },
     'c3p0': {
         'hibernate.c3p0.min_size': '20',
