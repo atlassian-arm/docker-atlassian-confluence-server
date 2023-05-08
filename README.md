@@ -238,6 +238,7 @@ optional.
 * `ATL_DB_VALIDATE` (default: false)
 * `ATL_DB_ACQUIREINCREMENT` (default: 1)
 * `ATL_DB_VALIDATIONQUERY` (default: "select 1")
+* `ATL_DB_PROVIDER_CLASS` (default: `com.atlassian.confluence.impl.hibernate.DelegatingHikariConnectionProvider`)
 
 ## Data Center configuration
 
