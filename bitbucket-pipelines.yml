@@ -40,6 +40,7 @@ pipelines:
                   --start-version='7.11' \
                   --default-release \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -65,6 +66,7 @@ pipelines:
                   --start-version='7.11' \
                   --default-release \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -90,6 +92,7 @@ pipelines:
                   --start-version='7.11' \
                   --default-release \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -115,6 +118,7 @@ pipelines:
                   --start-version='7.11' \
                   --default-release \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -140,6 +144,7 @@ pipelines:
                   --start-version='7.11' \
                   --default-release \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -165,6 +170,7 @@ pipelines:
                   --start-version='7.11' \
                   --default-release \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -190,6 +196,7 @@ pipelines:
                   --start-version='7.11' \
                   --default-release \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -215,6 +222,7 @@ pipelines:
                   --start-version='7.11' \
                   --default-release \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -239,6 +247,7 @@ pipelines:
                   --update \
                   --start-version='8' \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:17' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -263,6 +272,7 @@ pipelines:
                   --update \
                   --start-version='8' \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:17' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -287,6 +297,7 @@ pipelines:
                   --update \
                   --start-version='8' \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:17' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -311,6 +322,7 @@ pipelines:
                   --update \
                   --start-version='8' \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:17' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -335,6 +347,7 @@ pipelines:
                   --update \
                   --start-version='8' \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:17' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -359,6 +372,7 @@ pipelines:
                   --update \
                   --start-version='8' \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:17' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -383,6 +397,7 @@ pipelines:
                   --update \
                   --start-version='8' \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:17' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
@@ -407,6 +422,7 @@ pipelines:
                   --update \
                   --start-version='8' \
                   --default-eap \
+                  --create-eap \
                   --dockerfile='Dockerfile' \
                   --dockerfile-buildargs='BASE_IMAGE=eclipse-temurin:17' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \

@@ -48,6 +48,7 @@ pipelines:
                   --default-release \
                   {% endif %}
                   --default-eap \
+                  --create-eap \
                   --dockerfile='{{ appdata.dockerfile }}' \
                   --dockerfile-buildargs='BASE_IMAGE={{ appdata.base_image }}' \
                   --dockerfile-version-arg='CONFLUENCE_VERSION' \
